@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="D:\MyProjects\QoneScan\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="d543ebadc858702030dc373ea3d8ebcb909b580f">
+        <dex dex="D:\MyProjects\QoneScan\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_f992e3e0b5d721707ac426e79636cc77f44ef405\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\MyProjects\QoneScan\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="D:\MyProjects\QoneScan\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_f5c9a3931ab08da402035cb0ac0c9bb4489b20c5\classes.dex" />
+    </item>
+
+</items>
