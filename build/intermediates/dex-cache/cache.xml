@@ -3,21 +3,129 @@
 
     <item
         is-multidex="true"
-        jar="D:\MyProjects\QoneScan\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="C:\Users\VE\.android\build-cache\3217502eacdd180b6c543db414c715d4142ff430\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="28.0.1"
-        sha1="d543ebadc858702030dc373ea3d8ebcb909b580f">
-        <dex dex="D:\MyProjects\QoneScan\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_f992e3e0b5d721707ac426e79636cc77f44ef405\classes.dex" />
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="C:\MyProjects\QoneScan\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d7e2f2faac3c7475beb9c7c1c5516af3f6a77607\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="D:\MyProjects\QoneScan\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\VE\.android\build-cache\94bd204ca1845d1ebfb88caa058e5842a0e615f1\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="C:\MyProjects\QoneScan\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5a0b41541fa84a6577d71d257e8e11bfcd412a33\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\VE\.android\build-cache\8d871f76d30de5162169842ef2ff685ab780bcce\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="C:\MyProjects\QoneScan\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f5553028ded559b29d25a97456b262145d50656c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\VE\.android\build-cache\fa608286da995eaea19ddd650c57d89f3cd289c3\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="C:\MyProjects\QoneScan\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_011fe216f5cecfe9c87d8fb8014f6c24ee977ac4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MyProjects\QoneScan\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="8d5a0d5d6baff8056e96387332a4b9872076a8c7">
+        <dex dex="C:\MyProjects\QoneScan\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_b96e3d0642b09033be68456a4675a933b0a5f423\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MyTool\Android\SDK\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="C:\MyProjects\QoneScan\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.3.1_25d12522ea07cec9c423f050e619b433fd1e8401\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MyProjects\QoneScan\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="28.0.1"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="D:\MyProjects\QoneScan\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_f5c9a3931ab08da402035cb0ac0c9bb4489b20c5\classes.dex" />
+        <dex dex="C:\MyProjects\QoneScan\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_eb6f8c7cad70552689453e1b03604d479bb13081\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\VE\.android\build-cache\311d530e346900038ee3fa59847b3a9d6ec085ba\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="C:\MyProjects\QoneScan\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_964f6362cc3ca94154b3ca41c94f51a1f7bb0c5b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\VE\.android\build-cache\2dbcd7134958c8faa89f293504916c13adf953e0\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="C:\MyProjects\QoneScan\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3605304684215edd73f338c0b3dd91a78212547d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\VE\.android\build-cache\4628869b37d8c47f33eeecbe785f9e3396f2c391\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\MyProjects\QoneScan\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1379409ca755d30e0f74f5815d24e3a73f32b7ac\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\VE\.android\build-cache\0d8596d9f3af7ca83fec0113cafa6e27d5e74d30\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\MyProjects\QoneScan\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3a3c3b588279802c3ba20ac0cb6a2e202300fd39\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\VE\.android\build-cache\394a213f658e2103433c4316786f6e158f757922\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="C:\MyProjects\QoneScan\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e4c3d447aa3388d80881c63effedc7f1a8177f27\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\VE\.android\build-cache\4106fbda8b208c5d10ac5178196767efdc00b8c8\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="C:\MyProjects\QoneScan\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2bec9e61d24270fab2461276965befb9f42dac76\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MyTool\Android\SDK\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="28.0.1"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\MyProjects\QoneScan\app\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.2_b28a30883d9a2ae19679716cbfc42adea57eb2af\classes.dex" />
     </item>
 
 </items>

@@ -28,6 +28,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
@@ -37,7 +38,10 @@ public class FileActivity extends AppCompatActivity {
     private EditText editText;
     private Button saveBtn;
     private File file;
+//    private Set<String> curNums = new HashSet<String>();
+//    private LinkedList<String> strList = new LinkedList<String>();
     private List<String> curNums = new ArrayList<String>();
+    private String sep = "\r\n";
 
     private boolean hasChanged = false;
 
@@ -56,7 +60,7 @@ public class FileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (hasChanged) {
-                    writeFile(editText.getText().toString(), file);
+                    writeFile( file);
                     Toast.makeText(getApplicationContext(), "文件已保存", Toast.LENGTH_SHORT).show();
                     hasChanged = false;
                 }else {
@@ -67,15 +71,20 @@ public class FileActivity extends AppCompatActivity {
 
         file = new File(Environment.getExternalStorageDirectory()+File.separator+"Qone"+File.separator+fileName);
         if (!file.exists()){
-
+            file.mkdirs();
         }else {
             String fileContent = readFile(file);
-            String[] strings = fileContent.split("\r\n");
+            String[] strings = fileContent.split(sep);
+            Log.e("111",fileContent);
             for (String s:strings){
-                if (!curNums.contains(s) && s.indexOf("\r\n")==-1 && s.indexOf(" ") ==-1 && s.length()> 0) {
+                if (!curNums.contains(s) && s.indexOf(sep)==-1 && s.indexOf(" ") ==-1 && s.length()> 0) {
                     curNums.add(s);
+//                    strList.addLast(s);
                 }
             }
+//            for (int i=0;i<strList.size();i++){
+//                Log.e("111",strList.get(i));
+//            }
         }
         initEditView();
     }
@@ -95,11 +104,12 @@ public class FileActivity extends AppCompatActivity {
 
     private void initEditView(){
         StringBuilder sb = new StringBuilder("");
-        for (int i=0;i<curNums.size();i++){
-            sb.append(curNums.get(i)+"\n");
+        for(int i=0;i<curNums.size();i++){
+            sb.append(curNums.get(i) + "\n");
         }
-
-        editText.setText(sb.toString());
+        if (sb.length()>1) {
+            editText.setText(sb.toString().substring(0,sb.toString().length()));
+        }
         editText.setInputType(InputType.TYPE_NULL);
         editText.setSingleLine(false);
         editText.setHorizontallyScrolling(false);
@@ -116,20 +126,29 @@ public class FileActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Log.e("111","aaaaaa"+s);
-                String[] tmp = s.toString().split("\n");
-                newAdd = tmp[tmp.length-1];
+                Log.e("111","bba "+s);
+                if (count >1){
+                    String[] tmp = s.toString().split("\n");
+                    newAdd = tmp[tmp.length-1];
+                }else {
+                    newAdd = null;
+                }
             }
 
             @Override
             public void afterTextChanged(Editable s) {
                 editText.removeTextChangedListener(this);
-                if (curNums.contains(newAdd)){
-                    editText.setText(beforeCS.toString());
-                    createAlert(newAdd);
+                if (newAdd == null){
+
                 }else {
-                    curNums.add(newAdd);
-                    hasChanged = true;
+                    if (curNums.contains(newAdd)){
+                        editText.setText(beforeCS.toString());
+                        createAlert(newAdd);
+                    }else {
+                        curNums.add(newAdd);
+//                        strList.addLast(newAdd);
+                        hasChanged = true;
+                    }
                 }
                 editText.setSelection(editText.getText().length());
                 editText.addTextChangedListener(this);
@@ -138,6 +157,9 @@ public class FileActivity extends AppCompatActivity {
     }
 
     private void createAlert(String s){
+        String editStr = editText.getText().toString();
+        editStr = editStr.substring(0,editStr.length()-1);
+        editText.setText(editStr);
         new AlertDialog.Builder(FileActivity.this)
                 .setTitle("注意")
                 .setMessage(s+"已存在，无法输入")
@@ -167,7 +189,7 @@ public class FileActivity extends AppCompatActivity {
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        writeFile(editText.getText().toString(),file);
+                        writeFile(file);
                         Toast.makeText(getApplicationContext(), "文件已保存", Toast.LENGTH_LONG).show();
                     }
                 })
@@ -187,7 +209,7 @@ public class FileActivity extends AppCompatActivity {
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        writeFile(editText.getText().toString(),file);
+                        writeFile(file);
                         Toast.makeText(getApplicationContext(), "文件已保存", Toast.LENGTH_SHORT).show();
                         finish();
                     }
@@ -216,18 +238,14 @@ public class FileActivity extends AppCompatActivity {
         return sb.toString();
     }
 
-    private void writeFile(String s,File file){
-        String[] ss = s.split("\n");
+    private void writeFile(File file){
         try {
             if ( file.exists())
                 file.delete();
-//            FileOutputStream fos = new FileOutputStream(file);
-//            byte [] bytes = s.getBytes();
-//            fos.write(bytes);
             BufferedWriter bw = new BufferedWriter(new FileWriter(file,true));
-            for(String sss:ss){
-                bw.write(sss);
-                bw.write("\r\n");
+            for(int i=0;i<curNums.size();i++){
+                bw.write(curNums.get(i));
+                bw.write(sep);
                 bw.flush();
             }
             bw.close();

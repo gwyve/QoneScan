@@ -47,6 +47,9 @@ public class FolderActivity extends AppCompatActivity {
 
         File sdDir = Environment.getExternalStorageDirectory();
         path =  new File(sdDir+File.separator+"Qone");
+        if(!path.exists()){
+            path.mkdirs();
+        }
 
         files = path.listFiles();
 
