@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,6 +27,11 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -38,8 +44,6 @@ public class FileActivity extends AppCompatActivity {
     private EditText editText;
     private Button saveBtn;
     private File file;
-//    private Set<String> curNums = new HashSet<String>();
-//    private LinkedList<String> strList = new LinkedList<String>();
     private List<String> curNums = new ArrayList<String>();
     private String sep = "\r\n";
 
@@ -79,12 +83,8 @@ public class FileActivity extends AppCompatActivity {
             for (String s:strings){
                 if (!curNums.contains(s) && s.indexOf(sep)==-1 && s.indexOf(" ") ==-1 && s.length()> 0) {
                     curNums.add(s);
-//                    strList.addLast(s);
                 }
             }
-//            for (int i=0;i<strList.size();i++){
-//                Log.e("111",strList.get(i));
-//            }
         }
         initEditView();
     }
@@ -105,6 +105,7 @@ public class FileActivity extends AppCompatActivity {
     private void initEditView(){
         StringBuilder sb = new StringBuilder("");
         for(int i=0;i<curNums.size();i++){
+            Log.e("111","kkk  "+curNums.get(i));
             sb.append(curNums.get(i) + "\n");
         }
         if (sb.length()>1) {
@@ -126,10 +127,11 @@ public class FileActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Log.e("111","bba "+s);
+
                 if (count >1){
                     String[] tmp = s.toString().split("\n");
                     newAdd = tmp[tmp.length-1];
+                    newAdd = newAdd.replaceAll("\uFEFF","");
                 }else {
                     newAdd = null;
                 }
@@ -219,36 +221,50 @@ public class FileActivity extends AppCompatActivity {
 
 
     private String readFile(File file){
-        StringBuilder sb = new StringBuilder("");
+        String fileContent = "";
         try {
-            FileInputStream input = new FileInputStream(file);
-            byte[] temp = new byte[1024];
-            int len = 0;
-            //读取文件内容:
-            while ((len = input.read(temp)) > 0) {
-                sb.append(new String(temp, 0, len));
+            if(file.isFile()&&file.exists()){
+                InputStreamReader read = new InputStreamReader(new FileInputStream(file),"gbk");
+                BufferedReader reader=new BufferedReader(read);
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    fileContent += line;
+                    fileContent += sep;
+                    Log.e("111",line);
+                }
+                read.close();
             }
-            //关闭输入流
-            input.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (Exception e) {
+            System.out.println("读取文件内容操作出错");
             e.printStackTrace();
         }
-        return sb.toString();
+        Log.e("111",fileContent);
+        return fileContent;
     }
 
     private void writeFile(File file){
+
         try {
             if ( file.exists())
                 file.delete();
-            BufferedWriter bw = new BufferedWriter(new FileWriter(file,true));
-            for(int i=0;i<curNums.size();i++){
-                bw.write(curNums.get(i));
-                bw.write(sep);
-                bw.flush();
+            file.createNewFile();
+
+            FileOutputStream outputStream = new FileOutputStream(file,true);
+            for (int i = 0; i<curNums.size();i++){
+                outputStream.write(curNums.get(i).trim().getBytes("gbk"));
+                outputStream.write(sep.getBytes("gbk"));
+                outputStream.flush();
             }
-            bw.close();
+            outputStream.close();
+
+
+//            BufferedWriter bw = new BufferedWriter(new FileWriter(file,true));
+//            for(int i=0;i<curNums.size();i++){
+//                bw.write(curNums.get(i));
+//                bw.write(sep);
+//                bw.flush();
+//            }
+//            bw.close();
 //            MediaScannerConnection.scanFile(FileActivity.this,new String[]{file.getAbsolutePath()},null,null);
             notifySystemToScan(file);
 //            fos.close();
